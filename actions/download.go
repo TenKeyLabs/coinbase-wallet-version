@@ -20,7 +20,6 @@ func Download(url string) func(*cli.Context) error {
 		defer resp.Body.Close()
 
 		// Read the incoming filename and adjust format
-		fmt.Println(resp.Request.URL.String())
 		rawFilename := path.Base(resp.Request.URL.String())
 		filename := fmt.Sprintf("coinbase-wallet-chrome-%s.zip", strings.Join(strings.Split(rawFilename, "_")[1:4], "."))
 
