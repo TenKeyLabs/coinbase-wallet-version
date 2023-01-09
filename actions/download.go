@@ -42,7 +42,7 @@ func Download(url string) func(*cli.Context) error {
 		}
 
 		// Rename to zip and fix headers
-		filename := fmt.Sprintf("coinbase-wallet-chrome-3.0.4.zip", strings.Join(strings.Split(rawFilename, "_")[1:4], "."))
+		filename := fmt.Sprintf("coinbase-wallet-chrome-%s.zip", strings.Join(strings.Split(rawFilename, "_")[1:4], "."))
 		cmd := exec.Command("zip", "-FF", rawFilename, "--out", filename)
 		if err := cmd.Run(); err != nil {
 			return err
