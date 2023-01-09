@@ -5,6 +5,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"os/exec"
 	"path"
 	"strings"
 
@@ -19,12 +20,11 @@ func Download(url string) func(*cli.Context) error {
 		}
 		defer resp.Body.Close()
 
-		// Read the incoming filename and adjust format
+		// Read the incoming .crx's filename and adjust format
 		rawFilename := path.Base(resp.Request.URL.String())
-		filename := fmt.Sprintf("coinbase-wallet-chrome-%s.zip", strings.Join(strings.Split(rawFilename, "_")[1:4], "."))
 
 		// Create the file
-		out, err := os.Create(filename)
+		out, err := os.Create(rawFilename)
 		if err != nil {
 			return err
 		}
@@ -38,6 +38,13 @@ func Download(url string) func(*cli.Context) error {
 		// Writer the body to file
 		_, err = io.Copy(out, resp.Body)
 		if err != nil {
+			return err
+		}
+
+		// Rename to zip and fix headers
+		filename := fmt.Sprintf("coinbase-wallet-chrome-3.0.4.zip", strings.Join(strings.Split(rawFilename, "_")[1:4], "."))
+		cmd := exec.Command("zip", "-FF", rawFilename, "--out", filename)
+		if err := cmd.Run(); err != nil {
 			return err
 		}
 
