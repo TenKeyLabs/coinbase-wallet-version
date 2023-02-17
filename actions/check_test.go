@@ -8,7 +8,7 @@ import (
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"github.com/osis/cwv/actions"
+	"github.com/tenkeylabs/cwv/actions"
 	"github.com/urfave/cli/v2"
 )
 

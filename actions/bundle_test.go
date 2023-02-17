@@ -3,8 +3,8 @@ package actions_test
 import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"github.com/osis/cwv/actions"
-	"github.com/osis/cwv/util"
+	"github.com/tenkeylabs/cwv/actions"
+	"github.com/tenkeylabs/cwv/util"
 	"github.com/urfave/cli/v2"
 )
 

@@ -25,11 +25,11 @@ GLOBAL OPTIONS:
 ## Installation
 
 ```bash
-  git clone git@github.com:osis/coinbase-wallet-version.git
+  git clone git@github.com:TenKeyLabs/coinbase-wallet-version.git
   go build main.go -o cwv
   cwv help
 ```
 
 ## Why
 
-Mostly made this for fun and I hope a most official distribution channel for this extension is exposed to the community. Until then, this is will be used to power the [coinbase wallet versions](https://github.com/osis/coinbase-wallet-versions) archive.
+Mostly made this for fun and I hope a most official distribution channel for this extension is exposed to the community. Until then, this is will be used to power the [coinbase wallet versions](https://github.com/TenKeyLabs/coinbase-wallet-versions) archive.

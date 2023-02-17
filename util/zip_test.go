@@ -9,7 +9,7 @@ import (
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"github.com/osis/cwv/util"
+	"github.com/tenkeylabs/cwv/util"
 )
 
 var testBasePath = "../tmp"

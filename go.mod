@@ -1,4 +1,4 @@
-module github.com/osis/cwv
+module github.com/tenkeylabs/cwv
 
 go 1.19
 

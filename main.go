@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/osis/cwv/actions"
-	"github.com/osis/cwv/util"
+	"github.com/tenkeylabs/cwv/actions"
+	"github.com/tenkeylabs/cwv/util"
 
 	"github.com/urfave/cli/v2"
 )
