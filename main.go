@@ -11,8 +11,8 @@ import (
 )
 
 // This redirects
-var DOWNLOAD_URL = "https://clients2.google.com/service/update2/crx?response=redirect&os=mac&arch=arm64&os_arch=arm64&nacl_arch=arm&prod=chromiumcrx&prodchannel=&prodversion=109.0.5361.0&lang=en-US&acceptformat=crx3&x=id%3Dhnfanknocfeofbddgcijnmhnfnkdnaad%26installsource%3Dondemand%26uc"
-var WEBSTORE_URL = "https://chrome.google.com/webstore/detail/coinbase-wallet-extension/hnfanknocfeofbddgcijnmhnfnkdnaad"
+const DOWNLOAD_URL = "https://clients2.google.com/service/update2/crx?response=redirect&os=mac&arch=arm64&os_arch=arm64&nacl_arch=arm&prod=chromiumcrx&prodchannel=&prodversion=109.0.5361.0&lang=en-US&acceptformat=crx3&x=id%3Dhnfanknocfeofbddgcijnmhnfnkdnaad%26installsource%3Dondemand%26uc"
+const WEBSTORE_URL = "https://chromewebstore.google.com/detail/coinbase-wallet-extension/hnfanknocfeofbddgcijnmhnfnkdnaad?pli=1"
 
 func main() {
 	app := &cli.App{

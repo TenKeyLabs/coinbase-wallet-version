@@ -3,11 +3,9 @@ package actions
 import (
 	"fmt"
 	"io"
-	"strings"
 
 	"github.com/antchfx/htmlquery"
 	"github.com/urfave/cli/v2"
-	"golang.org/x/net/html"
 )
 
 func Check(w io.Writer, url string) func(*cli.Context) error {
@@ -18,31 +16,14 @@ func Check(w io.Writer, url string) func(*cli.Context) error {
 			return err
 		}
 
-		// Extract embedded doc
-		scriptNode, err := htmlquery.Query(doc, `//body/noscript`)
-		if err != nil {
-			return err
-		}
-
-		// Parse embedded doc
-		reader := strings.NewReader(htmlquery.InnerText(scriptNode))
-		scriptDoc, err := html.Parse(reader)
-		if err != nil {
-			return err
-		}
-
 		// Extract version from meta element
-		metaNode, err := htmlquery.Query(scriptDoc, `//div/span/meta[@itemprop='version']`)
-		var value string
-		for _, att := range metaNode.Attr {
-			if att.Key == "content" {
-				value = att.Val
-			}
+		metaNode, err := htmlquery.Query(doc, `//div[text()="Version"]/following-sibling::*`)
+		if err != nil {
+			return err
 		}
 
-		fmt.Fprintln(w, value)
+		fmt.Fprintln(w, htmlquery.InnerText(metaNode))
 
 		return nil
-
 	}
 }
